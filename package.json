@@ -1,0 +1,23 @@
+{
+  "name": "css-selectors",
+  "version": "1.0.0",
+  "description": "The html file contains the structure, the scss file a basic layout",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "my-sass": "node-sass scss/style.scss css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ioana-vladau/css-selectors.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ioana-vladau/css-selectors/issues"
+  },
+  "homepage": "https://github.com/ioana-vladau/css-selectors#readme",
+  "dependencies": {
+    "node-sass": "^4.9.0"
+  }
+}
