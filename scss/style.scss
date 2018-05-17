@@ -1,4 +1,4 @@
-$font-stack:    Helvetica, sans-serif;
+$font-stack: Helvetica, sans-serif;
 $primary-color: #d3a91f;
 $secondary-color: #141212;
 $width: 100%;
@@ -11,9 +11,10 @@ html, body, p , ul{
   body {
     font: 100% $font-stack;
     color: $primary-color;
-  
   }
   header{
+      width: $width*.9;
+      margin: 0 auto;
       padding:$space*2 0 $space;
   }
   ul {
@@ -25,8 +26,21 @@ html, body, p , ul{
         a {
             text-decoration: none;
             color: $secondary-color;
-            background: $primary-color;
+            background-color: $primary-color;
             padding: $space/4 $space/2;
+
+            // &:hover{
+            //     transition: 0.3s ease-in;
+            // }
+        }
+
+        
+        @for $i from 1 through 6 {
+            &:nth-child(#{$i}) a{
+             &:hover{
+                  background-color: rgb(random(255), random(255), random(255));
+                }
+            }
         }
     }
 }
@@ -35,12 +49,59 @@ article {
     background: grayscale($primary-color);
     color: $secondary-color;
     padding: $space/2;
+
+    &:first-child, &:last-child{
+        background-color: white;
+    }
 }
+
 main {
     width: $width*.9;
     margin: 0 auto;
-    background: lighten($secondary-color, 10%);
+    background: lighten($primary-color, 10%);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: $space/2;
-  }
+
+    article{
+        &:nth-child(4n+2), &:nth-child(4n+3){
+            color: $primary-color;
+        }
+        
+        &:nth-child(4n+2), &:nth-child(4n+3){
+            grid-column: span 3;
+        }
+
+        &::first-letter{
+            font-size: 150%;
+        }
+
+        blockquote{
+            &:before{
+                content: open-quote;
+            }
+            &:after{
+                content: close-quote;
+            }
+        }
+    }
+}
+
+nav{
+    ul{
+        li{
+            a{
+                background-color: $secondary-color;
+                color: $primary-color;
+                font-weight: bold;
+                &::before{
+                    content: "~";
+                }
+            }
+        }
+    }
+}
+
+footer{
+    margin-top: 7vh;
+}
